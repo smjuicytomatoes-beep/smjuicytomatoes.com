@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SM JUICY Tomatoes — Home</title>
+
+  <style>
+    :root {
+      --accent: #e94b35;
+      --dark: #0f1724;
+      --muted: #64748b;
+      --bg: #f6f8fa;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: var(--dark);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(12,20,30,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      width: 150px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .brand img:hover { transform: scale(1.05); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+    }
+
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .cta:hover { opacity: 0.9; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+    }
+
+    @media(max-width:880px) {
+      nav ul { display: none; }
+      .mobile-toggle { display: block; }
+    }
+
+    /* === Mobile Slide Menu === */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 240px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      padding: 80px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .mobile-menu.active { right: 0; }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      margin: 12px 0;
+      font-size: 17px;
+    }
+
+    .mobile-menu a:hover { color: var(--accent); }
+
+    .mobile-menu .cta {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 900;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .hero-image {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(13,20,30,0.06);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img {
+      width: 70%;
+      height: 90%;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+
+    /* Ingredients */
+    .ingredients {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(13,20,30,0.05);
+      padding: 60px 30px;
+      margin-bottom: 80px;
+    }
+
+    .ingredients h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--accent);
+    }
+
+    .ingredient-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .ingredient-item {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 20px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    /* Reviews */
+    .reviews {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .reviews h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .review-form {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 30px;
+      max-width: 500px;
+      margin: 0 auto 40px auto;
+      box-shadow: 0 4px 20px rgba(13,20,30,0.05);
+    }
+
+    .review-form input,
+    .review-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .review-form button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .star-rating {
+      margin: 10px 0;
+    }
+
+    .star {
+      font-size: 22px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star.selected { color: gold; }
+
+    .review-list .review {
+      max-width: 700px;
+      margin: 20px auto;
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(13,20,30,0.05);
+    }
+
+    .review p { font-style: italic; color: var(--dark); }
+    .stars { color: gold; margin-bottom: 10px; }
+
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+    }
+
+    .footer-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media(max-width:700px) { .hero { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="SM Juicy Tomatoes Logo">
+        <div>
+          <div style="font-weight:800">SM JUICY Tomatoes</div>
+          <div style="font-size:12px;color:var(--muted)">Tasty and Ready</div>
+        </div>
+      </div>
+      <nav>
+        <button class="mobile-toggle" aria-label="menu">☰</button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="product.html">Order Now</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero fade-in">
+      <div>
+        <h1>Farm-fresh ingredients, kitchen-ready products</h1>
+        <p class="muted">High-quality Frozen tomato purees & sauces made for chefs, restaurants, and home cooks.</p>
+      </div>
+      <div class="hero-image">
+        <img src="specialty services Flyer.jpg" alt="SM Juicy Tomatoes Product" class="hero-img">
+      </div>
+      <a class="cta" href="product.html">Shop Products</a>
+    </section>
+
+    <!-- ✅ Ingredients Section -->
+    <section class="ingredients fade-in">
+      <h2>Our Natural Ingredients</h2>
+      <div class="ingredient-list">
+        <div class="ingredient-item">Fresh Tomato</div>
+        <div class="ingredient-item">Habanero Pepper & Onion</div>
+        <div class="ingredient-item">Long Pepper</div>
+        <div class="ingredient-item">Red bell Pepper</div>
+        <div class="ingredient-item">Beetroot</div>
+        <div class="ingredient-item">No Preservatives</div>
+      </div>
+    </section>
+
+    <!-- ✅ Customer Reviews Section -->
+    <section class="reviews fade-in">
+      <h2>Customer Reviews</h2>
+
+      <!-- Review Form -->
+      <div class="review-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <textarea id="message" placeholder="Write your review..." required></textarea>
+        <div class="star-rating" id="starRating">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <button id="submitReview">Submit Review</button>
+      </div>
+
+      <!-- Reviews List -->
+      <div id="reviewList" class="review-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-flex">
+      <div><strong>SM JUICY Tomatoes</strong> <div class="muted">Tasty and Ready | Pure & Fresh</div></div>
+      <div class="muted">© <span id="year"></span> SM JUICY Tomatoes</div>
+    </div>
+  </footer>
+
+  <!-- ✅ Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a class="cta" href="product.html">Order Now</a>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ✅ Firebase and JS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB9ibq8_7mUtHeCVu4-n2nKrx5G2B0xYqI",
+      authDomain: "sm-juicy-tomatoes.firebaseapp.com",
+      projectId: "sm-juicy-tomatoes",
+      storageBucket: "sm-juicy-tomatoes.firebasestorage.app",
+      messagingSenderId: "219499102959",
+      appId: "1:219499102959:web:6709de8380422fa86d111a",
+      measurementId: "G-4ZMPL0JLB4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ✅ Mobile Slide Menu Logic
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    // ⭐ Star Rating Logic
+    const stars = document.querySelectorAll('.star');
+    let rating = 0;
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        rating = star.dataset.value;
+        stars.forEach(s => s.classList.toggle('selected', s.dataset.value <= rating));
+      });
+    });
+
+    // ✅ Submit Review
+    document.getElementById('submitReview').addEventListener('click', async () => {
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !message || rating === 0) {
+        alert('Please fill all fields and choose a rating.');
+        return;
+      }
+
+      await addDoc(collection(db, 'reviews'), { name, message, rating: Number(rating), createdAt: new Date().toISOString() });
+      alert('Review submitted successfully!');
+      loadReviews();
+    });
+
+    // ✅ Load Reviews
+    async function loadReviews() {
+      const snapshot = await getDocs(collection(db, 'reviews'));
+      const reviewList = document.getElementById('reviewList');
+      reviewList.innerHTML = '';
+      snapshot.forEach(doc => {
+        const r = doc.data();
+        const starsDisplay = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+        reviewList.innerHTML += `
+          <div class="review">
+            <div class="stars">${starsDisplay}</div>
+            <p>“${r.message}”</p>
+            <small>– ${r.name}</small>
+          </div>`;
+      });
+    }
+
+    loadReviews();
+  </script>
+</body>
+</html>

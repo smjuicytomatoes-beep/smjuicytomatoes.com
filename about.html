@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — SM JUICY Tomatoes</title>
+<meta name="description" content="Learn about SM JUICY Tomatoes, our mission, values, and commitment to quality tomato purée.">
+<style>
+  :root {
+    --deep-red:#8B0000;
+    --tomato:#D32F2F;
+    --gold:#D4AF37;
+    --ivory:#FFF8F0;
+    --charcoal:#2b2b2b;
+    --rounded:14px;
+    --max-width:1100px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    background: linear-gradient(180deg, #fff 0%, #fff6f6 60%);
+    color:var(--charcoal);
+    line-height:1.45;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:linear-gradient(90deg, rgba(211,47,47,0.06), rgba(211,47,47,0.02));
+    border-radius:20px;
+    padding:18px;
+    margin:20px auto;
+    max-width:var(--max-width);
+    box-shadow: 0 8px 30px rgba(211,47,47,0.06);
+  }
+  .logo {width:150px;height:100px;border-radius:150px;background: radial-gradient(circle at 20% 20%, #ff5b5b, var(--tomato));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(211,47,47,0.15);border:3px solid var(--gold);overflow:hidden;}
+  .logo img {width:300%;height:240%;object-fit:contain;border-radius:60px;background:white;padding-left:35px;}
+  .brand {display:flex;flex-direction:column;}
+  .brand h1{margin:0;font-size:28px;color:var(--deep-red);}
+  .tag{margin-top:6px;color:var(--tomato);font-weight:600;}
+  .container{max-width:var(--max-width);margin:36px auto;padding:28px;}
+  h2{color:var(--deep-red);}
+  p{margin-bottom:16px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px;}
+  .card{background:linear-gradient(180deg, white, var(--ivory));padding:20px;border-radius:16px;box-shadow: 0 8px 18px rgba(43,43,43,0.06);}
+  img.responsive{width:100%;border-radius:12px;box-shadow:0 6px 18px rgba(43,43,43,0.06);}
+  footer{margin-top:28px;text-align:center;color:#666;font-size:13px;}
+  @media(max-width:768px){.grid{grid-template-columns:1fr;}}
+
+  founders {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff6f6;
+  border-radius: 16px;
+}
+
+.founders h2 {
+  color: #8B0000;
+  margin-bottom: 28px;
+  font-size: 28px;
+}
+
+.founder-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -30px; /* negative gap for integrated effect */
+  flex-wrap: wrap;
+}
+
+.founder {
+  position: relative;
+  width: 300px;
+}
+
+.founder img {
+  width: 150%;
+  border-radius: 20% 20% 50% 10%; /* creative clip shape */
+  border: 4px solid #D4AF37;
+  box-shadow: 0 8px 24px rgba(139,0,0,0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.founder img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  border-color: #8B0000;
+}
+
+.founder p {
+  margin-top: 12px;
+  margin-right: 10px;
+  font-weight: 600;
+  color: #D32F2F;
+  font-size: 16px;
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="logo.png" alt="SM JUICY Tomatoes Logo"></div>
+  <div class="brand">
+    <h1>SM JUICY Tomatoes</h1>
+    <div class="tag">Tasty and Ready</div>
+  </div>
+</header>
+
+<div class="container">
+  <h2>Our Story</h2>
+  <p>SM JUICY Tomatoes started with a simple mission: to bring fresh, flavorful tomato purée to every kitchen. We believe in quality, hygiene, and taste — making cooking easier and more enjoyable for everyone.</p>
+  <p>From our farm to your table, we handle every tomato with care, ensuring the rich taste and vibrant color you expect in every jar.</p>
+
+  <h2>Our Mission & Values</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Quality First</h3>
+      <p>We prioritize high-quality, hygienically processed tomatoes for all our products, so you can cook confidently.</p>
+    </div>
+    <div class="card">
+      <h3>Customer Happiness</h3>
+      <p>We aim to provide a reliable, friendly service that puts your satisfaction and convenience first.</p>
+    </div>
+    <div class="card">
+      <h3>Innovation</h3>
+      <p>We constantly refine our products, packaging, and delivery process to ensure freshness and value.</p>
+    </div>
+    <div class="card">
+      <h3>Sustainability</h3>
+      <p>We support responsible farming practices and minimize waste while delivering delicious tomatoes.</p>
+    </div>
+  </div>
+
+  <h2>OUR TEAM</h2>
+  <section class="founders">
+  <div class="founder-images">
+    <div class="founder">
+      <img src="Samuel_James-removebg-preview.png" alt="Founder 1">
+      <p>Mr. James Samuel</p>
+    </div>
+    <div class="founder">
+      <img src="mag-removebg-preview.png" alt="Founder 2">
+      <p>Miss Olorunfemi Margaret</p>
+    </div>
+    <p>A dedicated team passionate about food quality, hygiene, and customer satisfaction. Together, we make sure every order meets our high standards.</p>
+  </div>
+  </div>
+
+
+<footer>
+  © <span id="year"></span> SM JUICY Tomatoes · All rights reserved
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

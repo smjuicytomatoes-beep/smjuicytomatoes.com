@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SM JUICY Tomatoes — Tasty and Ready</title>
+<meta name="description" content="SM JUICY Tomatoes - Fresh, bold tomato purée. Order for pickup via WhatsApp."/>
+<style>
+:root{
+  --deep-red:#8B0000;
+  --tomato:#D32F2F;
+  --gold:#D4AF37;
+  --ivory:#FFF8F0;
+  --charcoal:#2b2b2b;
+  --rounded:14px;
+  --max-width:1100px;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background: linear-gradient(180deg,#fff 0%,#fff6f6 60%);
+  color:var(--charcoal);line-height:1.45;
+}
+.container{max-width:var(--max-width);margin:36px auto;padding:28px;}
+header{display:flex;align-items:center;gap:20px;background:linear-gradient(90deg, rgba(211,47,47,0.06), rgba(211,47,47,0.02));border-radius:20px;padding:18px;box-shadow:0 8px 30px rgba(211,47,47,0.06);}
+.logo{width:150px;height:100px;border-radius:150px;background: radial-gradient(circle at 20% 20%, #ff5b5b, var(--tomato));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(211,47,47,0.15);border:3px solid var(--gold);overflow:hidden;}
+.logo img{width:300%;height:240%;object-fit:contain;border-radius:60px;background:white;padding-left:35px;}
+.logo:hover{box-shadow:0 0 25px rgba(212,175,55,0.6),0 0 50px rgba(139,0,0,0.3);transform:scale(1.05);transition:all 0.4s ease;}
+.brand{display:flex;flex-direction:column;}
+.brand h1{margin:0;font-size:28px;color:var(--deep-red);}
+.tag{margin-top:6px;color:var(--tomato);font-weight:600;}
+.grid{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;}
+.card{background:linear-gradient(180deg, white, var(--ivory));padding:20px;border-radius:16px;box-shadow:0 8px 18px rgba(43,43,43,0.06);}
+h2{color:var(--deep-red);margin-top:0;}
+p.lead{font-weight:600;color:#4b4b4b;}
+.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px;}
+.benefit{background: linear-gradient(180deg, rgba(212,175,55,0.05), rgba(211,47,47,0.02));padding:12px;border-radius:12px;border-left:4px solid var(--gold);}
+.benefit h4{margin:6px 0 4px 0;font-size:15px;color:var(--tomato);}
+.benefit p{margin:0;font-size:13px;color:#333;}
+.products{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;}
+.product{flex:1 1 180px;min-width:160px;background:linear-gradient(180deg,#fff,#fff6f6);border-radius:12px;padding:12px;text-align:center;border:1px solid rgba(211,47,47,0.06);}
+.product .img{width:100%;height:140px;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(139,0,0,0.1);margin-bottom:10px;background:white;display:flex;align-items:center;justify-content:center;}
+.product .img img{width:100%;height:100%;object-fit:cover;border-radius:12px;transition:transform 0.3s ease;}
+.product .img:hover img{transform:scale(1.05);}
+.product h3{margin:6px 0;font-size:16px;color:var(--deep-red);}
+.product p{margin:0;font-size:14px;color:#555;}
+.booking{position:sticky;top:24px;}
+form .field{margin-bottom:12px;}
+label{display:block;font-size:13px;margin-bottom:6px;color:#333;}
+input[type="text"], input[type="datetime-local"], select, textarea, input[type="number"]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(43,43,43,0.09);font-size:14px;background:white;}
+.row{display:flex;gap:10px;}
+.row .col{flex:1;}
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--tomato),var(--deep-red));color:white;padding:12px 16px;border-radius:12px;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 24px rgba(139,0,0,0.18);width:100%;font-size:15px;}
+.btn.secondary{background:transparent;color:var(--deep-red);border:2px dashed rgba(211,47,47,0.12);box-shadow:none;font-weight:700;}
+.small{font-size:13px;color:#666;margin-top:8px;}
+footer{margin-top:28px;text-align:center;color:#666;font-size:13px;}
+@media(max-width:980px){.grid{grid-template-columns:1fr;}.booking{position:relative;top:auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="logo.png" alt="SM JUICY Tomatoes Logo" /></div>
+  <div class="brand"><h1>SM JUICY Tomatoes</h1><div class="tag">Tasty and Ready</div></div>
+  <div style="margin-left:auto;text-align:right;">
+    <div style="font-weight:800;color:var(--tomato);">Freshly made</div>
+    <div style="color:#666;">Pickup or Book for collection</div>
+  </div>
+</header>
+
+<div class="grid">
+
+<!-- LEFT: Info -->
+<section class="card">
+  <h2>Why tomato purée?</h2>
+  <p class="lead">Tomato purée is a kitchen staple — concentrated flavor, long shelf-life, and a quick way to add depth to sauces, stews, and soups.</p>
+
+  <div class="benefits">
+    <div class="benefit"><h4>Nutrient Rich</h4><p>High in vitamins A & C, potassium, and lycopene — good for health.</p></div>
+    <div class="benefit"><h4>Convenient</h4><p>Saves time and provides consistent flavor for meals and small businesses.</p></div>
+    <div class="benefit"><h4>Versatile</h4><p>Use in sauces, soups, marinades, braises — perfect for cooks and chefs.</p></div>
+    <div class="benefit"><h4>Longer Shelf-Life</h4><p>Lasts longer than fresh tomatoes when stored properly.</p></div>
+  </div>
+
+  <h2 style="margin-top:18px">Our Products</h2>
+  <div class="products">
+    <div class="product"><div class="img"><img src="tomato200.png" alt="Tomato Purée Small (₦600)"></div><h3>Tomato Purée Small (₦600)</h3><p>Ready-to-use, rich texture — perfect for everyday cooking.</p></div>
+    <div class="product"><div class="img"><img src="tomato400.png" alt="Tomato Purée Large (₦1200)"></div><h3>Tomato Purée Large (₦1200)</h3><p>Ready-to-use, rich texture — perfect for everyday cooking.</p></div>
+    <div class="product"><div class="img"><img src="Tomatoes 1.jpg" alt="Tomato Purée Bulky (₦15,000)"></div><h3>Tomato Purée Bulky (₦15,000)</h3><p>Ready-to-use, rich texture — perfect for everyday cooking.</p></div>
+  </div>
+</section>
+
+<!-- RIGHT: Booking Form -->
+<aside class="booking">
+  <div class="card">
+    <h2>Book for Pickup</h2>
+    <p class="small">Fill the form — then tap <strong>Confirm via WhatsApp</strong> to send your order directly to our vendor.</p>
+
+    <form id="orderForm" onsubmit="return handleSubmit(event)">
+      <div class="field">
+        <label for="product">Product</label>
+        <select id="product" required>
+          <option value="Tomato Purée Small (₦600)">Tomato Purée Small (₦600)</option>
+          <option value="Tomato Purée Large (₦1200)">Tomato Purée Large (₦1200)</option>
+          <option value="Tomato Purée Bulky (₦15,000)">Tomato Purée Bulky (₦15,000)</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col field">
+          <label for="qty">Quantity</label>
+          <input id="qty" type="number" min="1" value="1" required>
+        </div>
+        <div class="col field">
+          <label for="time">Pickup time</label>
+          <input id="time" type="datetime-local" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="location">Pickup location</label>
+        <select id="location" onchange="showCustomLocation()" required>
+          <option value="Rukuba Road">Rukuba Road — Free Delivery</option>
+          <option value="Gada Biu / Polo">Gada Biu / Polo — ₦200 Delivery</option>
+          <option value="Standard Junction / West of Mines">Standard Junction/West of Mines — ₦400 Delivery</option>
+          <option value="Other">Other Location in Jos — Custom Fee</option>
+          <option value="Interstate">Interstate Delivery — Custom Fee</option>
+        </select>
+      </div>
+
+      <div class="field" id="customLocationField" style="display:none;">
+        <label for="customLocation">Specify Address</label>
+        <input id="customLocation" type="text" placeholder="Enter your specific address">
+      </div>
+
+      <div class="field">
+        <label for="note">Additional note (optional)</label>
+        <textarea id="note" rows="3" placeholder="E.g., leave at gate, call on arrival..."></textarea>
+      </div>
+
+      <div class="field">
+        <button type="submit" class="btn">Confirm via WhatsApp</button>
+      </div>
+    </form>
+
+    <hr style="border:none;border-top:1px dashed rgba(43,43,43,0.06);margin:16px 0;">
+
+    <div>
+      <strong>Vendor WhatsApp</strong>
+      <div style="margin-top:8px;">
+        <button class="btn secondary" type="button" onclick="openWhatsApp('Hi, I want to enquire about SM JUICY Tomatoes')">Chat Vendor</button>
+      </div>
+      <p class="small" style="margin-top:10px">Phone: +234 810 820 8426</p>
+    </div>
+  </div>
+</aside>
+</div>
+
+<footer>
+  © <span id="year"></span> SM JUICY Tomatoes · All rights reserved.
+</footer>
+
+<script>
+const WA_NUMBER = "2348108208426";
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Show/hide custom location
+function showCustomLocation(){
+  const loc = document.getElementById('location').value;
+  document.getElementById('customLocationField').style.display = (loc==='Other' || loc==='Interstate') ? 'block' : 'none';
+}
+
+// Open WhatsApp with custom message
+function openWhatsApp(text){
+  const msg = encodeURIComponent(text);
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+}
+
+// Form submit
+function handleSubmit(e){
+  e.preventDefault();
+  const product = document.getElementById('product').value;
+  const qty = document.getElementById('qty').value;
+  const time = document.getElementById('time').value;
+  const locationSelect = document.getElementById('location').value;
+  const customLoc = document.getElementById('customLocation').value;
+  const note = document.getElementById('note').value;
+
+  let locationText = locationSelect;
+  if(locationSelect==='Other' || locationSelect==='Interstate'){
+    if(!customLoc.trim()){ alert('Please specify your custom address.'); return false;}
+    locationText += " — " + customLoc.trim();
+  }
+
+  const pickupTime = formatDateTime(time);
+
+  const msg = `Order from SM JUICY Tomatoes%0AProduct: ${encodeURIComponent(product)}%0AQuantity: ${encodeURIComponent(qty)}%0APickup time: ${encodeURIComponent(pickupTime)}%0APickup location: ${encodeURIComponent(locationText)}${note? "%0ANote: "+encodeURIComponent(note):''}%0A%0APlease confirm availability and total cost. Thank you!`;
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+  return false;
+}
+
+// Format datetime-local input to readable string
+function formatDateTime(input){
+  const dt = new Date(input);
+  if(isNaN(dt)) return input;
+  return dt.toLocaleString(undefined,{month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit'});
+}
+
+// Prefill time 2 hours from now
+(function prefillTime(){
+  const el = document.getElementById('time');
+  if(!el) return;
+  const now = new Date();
+  now.setHours(now.getHours()+2);
+  now.setSeconds(0,0);
+  const tzOffset = now.getTimezoneOffset();
+  el.value = new Date(now.getTime()-(tzOffset*60000)).toISOString().slice(0,16);
+})();
+</script>
+</body>
+</html>
